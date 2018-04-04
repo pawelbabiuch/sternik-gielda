@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="th/layout ::site-head">
+<title>Wszystkie modele</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" media="all" href="../../css/style.css" th:href="@{/css/style.css}" />
+</head>
+
+<body>
+
+  <div id='container'>
+    <header th:replace="th/layout :: site-header" />
+     
+    <main th:unless="${#lists.isEmpty(carsAll)}">
+      <h2>Wszystkie modele</h2>
+      <table class="tableStyle">
+        <thead>
+          <tr>
+            <th th:text="#{auto.vin}">VIN</th>
+            <th th:text="#{auto.marka}">Wersja</th>
+            <th th:text="#{auto.model}">Model</th>
+            <th th:text="#{auto.wersja}">Rocznik</th>
+            <th th:text="#{auto.waluta}">Przebieg</th>
+            <th th:text="#{auto.cena}">Cena</th>
+            <th th:text="#{auto.data}">Data</th>
+            <th th:text="#{auto.krajPochodzenia}">Kraj pochodzenia</th>
+            <th th:text="#{auto.status}">Stan</th>
+            <th th:text="#{auto.operacje}">operacje</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="car : ${carsAll}">
+            <form action="#" th:action="@{/samochody}" th:object="${car}" method="post">
+            <td th:text="${car.vin}">1</td>
+            <td th:text="${car.marka}">Opel</td>
+            <td th:text="${car.model}">126p</td>
+            <td th:text="${car.wersja}">I</td>
+            <td th:text="${car.waluta}">PLN</td>
+            <td th:text="${car.cena}">5400</td>
+            <td th:text="${car.data}">1987-06-02</td>
+            <td th:text="${car.krajPochodzenia}">Polska</td>
+            <td th:text="#{${'auto.status.' + car.status}}">Nowa</td>
+            <td>
+              <button type="submit" name="remove" th:value="${car.vin}" 
+              th:text="#{auto.remove}">Dell</button>
+              
+              <a href="moneta.html" th:href="@{|/samochody/${car.vin}|}" >
+              <button type="button" th:text="#{auto.edit}">Editt</button></a>              
+            </td>
+            </form>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+    <footer th:replace="th/layout :: site-footer" />
+  </div>
+
+
+</body>
+</html>

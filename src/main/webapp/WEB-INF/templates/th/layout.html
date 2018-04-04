@@ -1,0 +1,48 @@
+<!DOCTYPE html >
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="site-head">
+<title th:text="#{title.application}">Gielda samochodowa</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" media="all" href="../../../css/style.css" th:href="@{/css/style.css}" />
+<link rel="icon" href="../../../imgages/rent-car.ico" th:href="@{/images/rent-car.ico}" />
+</head>
+
+<body>
+
+  <header th:fragment="site-header">
+    <img class='logo-img' src="../../../images/logo.png" th:src="@{/images/logo.png}"/>
+    <nav>
+      <a href="gielda.html" th:href="@{/samochody}">Wszystkie modele</a>
+      <a href="tosell.html" th:href="@{/tosell}">Auta na giełdzie</a>
+      <a href="samochod.html" th:href="@{/samochody/create}">Dodaj oferte</a>
+    </nav>
+
+    <!--
+    Zalogowany: <b th:inline="text"> [[${#httpServletRequest.remoteUser}]] </b>  
+    <form th:action="@{/logout}" method="POST" style="display: inline">
+        <input type=submit class="link" value="Wyloguj"/>
+    </form>
+       
+    <ul id="messages">
+      <li th:each="msg : ${MyMessages}" th:text="${msg.text}"
+           th:class="${#strings.toLowerCase(msg.type)}">
+      </li>
+    </ul>
+    -->
+  </header>
+
+  <div>
+    <h2 th:text="#{title.list}" style="display: inline;">Klaser monet</h2>    
+    <img src="../../../images/klaser.jpg" alt="Klaser logo" title="Klaser logo" th:src="@{/images/klaser.jpg}"
+      th:alt-title="#{title.application}" style="float: right;" /> 
+    <p> A tu jakis kontent, raczej sie nie pokaże </p>
+  </div>
+
+  <footer th:fragment="site-footer"> 
+  Paweł Babiuch <a href="https://github.com/pawelbabiuch/sternik-week"> Source code</a>&copy;, Sternik Giełda Samochodowa, 2018 
+  </footer>
+
+</body>
+</html>

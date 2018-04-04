@@ -1,0 +1,139 @@
+body
+{
+  background-color: #efefef;
+  background-image: url("../images/intersection.png");
+  padding: 0;
+  margin: 0;
+}
+
+#container
+{
+  width: 1000px;
+  margin: auto;
+
+  background-color: #fefefe;
+}
+
+.logo-img
+{
+  width: 1000px;
+}
+
+header > nav
+{
+  background: -moz-linear-gradient(top, #4893bb 0%, #237dad 66%, #0B6FA4 100%);
+  background: -webkit-linear-gradient(top, #4893bb 0%, #237dad 66%, #0B6FA4 100%);
+  background: linear-gradient(to bottom, #4893bb 0%, #237dad 66%, #0B6FA4 100%);
+  text-align: right;
+}
+
+header > nav > a
+{
+  text-decoration: none;
+  font-size: 24px;
+  letter-spacing: 1px;
+
+  font-weight: 700;
+  padding: 0 10px;
+  color: white;
+}
+
+footer
+{
+  background: -moz-linear-gradient(top, #4893bb 0%, #237dad 66%, #0B6FA4 100%);
+  background: -webkit-linear-gradient(top, #4893bb 0%, #237dad 66%, #0B6FA4 100%);
+  background: linear-gradient(to bottom, #4893bb 0%, #237dad 66%, #0B6FA4 100%);
+  padding: 25px;
+  text-align: center;
+  color: white;
+}
+
+footer > a
+{
+  color: white;
+}
+
+main
+{
+  padding: 10px;
+}
+
+form
+{
+  text-align: center;
+}
+
+input, select {
+  width: 250px;
+  margin: 5px;
+  padding: 10px 20px;
+  border: 1px solid #b7b7b7;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  font: normal 16px/normal "Times New Roman", Times, serif;
+  color: rgba(0,142,198,1);
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  background: rgba(252,252,252,1);
+  -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+  box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.66) ;
+}
+
+button {
+  width: 128px;
+  cursor: pointer;
+  padding: 10px 20px;
+  border: 1px solid #018dc4;
+  -webkit-border-radius: 9px;
+  border-radius: 9px;
+  font: normal 16px/normal "Times New Roman", Times, serif;
+  color: rgba(255,255,255,0.9);
+  text-align: center;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  background: -moz-linear-gradient(top, #4893bb 0%, #237dad 66%, #0B6FA4 100%);
+  background: -webkit-linear-gradient(top, #4893bb 0%, #237dad 66%, #0B6FA4 100%);
+  background: linear-gradient(to bottom, #4893bb 0%, #237dad 66%, #0B6FA4 100%);
+  -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) ;
+  box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) ;
+  text-shadow: -1px -1px 0 rgba(15,73,168,0.66) ;
+}
+
+table.tableStyle {
+  font-family: "Times New Roman", Times, serif;
+  border: 1px solid #007DFF;
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+table.tableStyle td, table.tableStyle th {
+  border: 1px solid #C7C7C7;
+  padding: 3px 2px;
+}
+table.tableStyle tbody td {
+  font-size: 13px;
+}
+table.tableStyle tr:nth-child(even) {
+  background: #D0E4F5;
+}
+table.tableStyle thead {
+  background: #0B6FA4;
+  background: -moz-linear-gradient(top, #4893bb 0%, #237dad 66%, #0B6FA4 100%);
+  background: -webkit-linear-gradient(top, #4893bb 0%, #237dad 66%, #0B6FA4 100%);
+  background: linear-gradient(to bottom, #4893bb 0%, #237dad 66%, #0B6FA4 100%);
+}
+table.tableStyle thead th {
+  font-size: 17px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+  border-left: 2px solid #FFFFFF;
+}
+table.tableStyle thead th:first-child {
+  border-left: none;
+}
+
+table.tableStyle tfoot td {
+  font-size: 14px;
+}
