@@ -10,6 +10,8 @@ public interface GieldaService {
     List<Samochod> findAll();
 
     List<Samochod> findAllToSell();
+    
+    List<Samochod> findCrashed();
 
     Optional<Samochod> findByVin(long vin);
 

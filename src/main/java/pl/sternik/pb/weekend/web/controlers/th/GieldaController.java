@@ -33,19 +33,19 @@ public class GieldaController {
 //    }
 
     @ModelAttribute("carsAll")
-    public List<Samochod> populateCoins() {
+    public List<Samochod> populateCars() {
         return this.gieldaService.findAll();
     }
 
-//    @ModelAttribute("coinsToSell")
-//    public List<Samochod> populateCoinsToSell() {
-//        return this.gieldaService.findAllToSell();
-//    }
-
-//    @ModelAttribute("coinsLast3")
-//    public List<Samochod> populateLast3Coins() {
-//        return this.gieldaService.findLatest3();
-//    }
+    @ModelAttribute("carsToSell")
+    public List<Samochod> populateCarsToSell() {
+        return this.gieldaService.findAllToSell();
+    }
+    
+    @ModelAttribute("carsCrashed")
+    public List<Samochod> populateCarsCrashed() {
+        return this.gieldaService.findCrashed();
+    }
 
     @RequestMapping({ "/", "/index" })
     public String index(Model model) {
@@ -54,7 +54,6 @@ public class GieldaController {
 
     @RequestMapping(value = "/samochody", method = RequestMethod.GET)
     public String showMainPage(Model model) {
-        model.addAttribute("MyMessages",  notificationService.getNotificationMessages());
         return "th/gielda";
     }
 
@@ -63,4 +62,8 @@ public class GieldaController {
         return "th/tosell";
     }
 
+    @RequestMapping("/crashed")
+    public String showCrashedPage() {
+        return "th/crashed";
+    }
 }

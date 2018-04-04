@@ -2,13 +2,17 @@ package pl.sternik.pb.weekend.services;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import pl.sternik.pb.weekend.entities.Samochod;
+import pl.sternik.pb.weekend.entities.Status;
 import pl.sternik.pb.weekend.repositories.SamochodAlreadyExistsException;
 import pl.sternik.pb.weekend.repositories.SamochodyRepository;
 import pl.sternik.pb.weekend.repositories.NoSuchSamochodException;
@@ -19,7 +23,8 @@ import pl.sternik.pb.weekend.repositories.NoSuchSamochodException;
 public class GieldaServiceImpl implements GieldaService {
 
     @Autowired
-    @Qualifier("tablica")
+   // @Qualifier("tablica")
+    @Qualifier("lista")
     private SamochodyRepository bazaDanych;
 
     @Override
@@ -29,7 +34,17 @@ public class GieldaServiceImpl implements GieldaService {
 
     @Override
     public List<Samochod> findAllToSell() {
-        return bazaDanych.findAll();
+    	   return bazaDanych.findAll()
+			    			.stream()
+			    			.filter(p -> Objects.equals(p.getStatus(), Status.UZYWANA))
+			                .collect(Collectors.toList());
+    }
+    
+    public List<Samochod> findCrashed(){
+    	return bazaDanych.findAll()
+    			.stream()
+    			.filter(p -> Objects.equals(p.getStatus(), Status.USZKODZONA))
+    			.collect(Collectors.toList());
     }
 
     @Override
