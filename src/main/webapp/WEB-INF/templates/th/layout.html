@@ -16,6 +16,7 @@
     <nav>
       <a href="gielda.html" th:href="@{/samochody}">Wszystkie modele</a>
       <a href="tosell.html" th:href="@{/tosell}">Auta na giełdzie</a>
+      <a href="crashed.html" th:href="@{/crashed}">Auta uszkodzone</a>
       <a href="samochod.html" th:href="@{/samochody/create}">Dodaj oferte</a>
     </nav>
 
@@ -32,13 +33,6 @@
     </ul>
     -->
   </header>
-
-  <div>
-    <h2 th:text="#{title.list}" style="display: inline;">Klaser monet</h2>    
-    <img src="../../../images/klaser.jpg" alt="Klaser logo" title="Klaser logo" th:src="@{/images/klaser.jpg}"
-      th:alt-title="#{title.application}" style="float: right;" /> 
-    <p> A tu jakis kontent, raczej sie nie pokaże </p>
-  </div>
 
   <footer th:fragment="site-footer"> 
   Paweł Babiuch <a href="https://github.com/pawelbabiuch/sternik-week"> Source code</a>&copy;, Sternik Giełda Samochodowa, 2018 

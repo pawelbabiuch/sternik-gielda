@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="th/layout ::site-head">
+<title>Giełda samochodowa</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+	<div id='container'>
+		<header th:replace="th/layout :: site-header" />
+
+	  	<main th:unless="${#lists.isEmpty(carsCrashed)}">
+	      <h2>Lista aut uszkodzonych</h2>
+	      <table class="tableStyle">
+	        <thead>
+	         <tr>
+	            <th th:text="#{auto.vin}">VIN</th>
+	            <th th:text="#{auto.marka}">Wersja</th>
+	            <th th:text="#{auto.model}">Model</th>
+	            <th th:text="#{auto.wersja}">Rocznik</th>
+	            <th th:text="#{auto.waluta}">Przebieg</th>
+	            <th th:text="#{auto.data}">Data</th>
+	            <th th:text="#{auto.krajPochodzenia}">Kraj pochodzenia</th>
+	         </tr>
+        </thead>
+        <tbody>
+	        <tr th:each="car : ${carsCrashed}">
+	            <td th:text="${car.vin}">1</td>
+	            <td th:text="${car.marka}">Opel</td>
+	            <td th:text="${car.model}">126p</td>
+	            <td th:text="${car.wersja}">I</td>
+	            <td th:text="${car.waluta}">PLN</td>
+	            <td th:text="${car.data}">1987-06-02</td>
+	            <td th:text="${car.krajPochodzenia}">Polska</td>
+        	</tr>
+        </tbody>
+      </table>
+    </main>
+
+  		<footer th:replace="th/layout :: site-footer" />
+	</div>
+</body>
+
+</html>

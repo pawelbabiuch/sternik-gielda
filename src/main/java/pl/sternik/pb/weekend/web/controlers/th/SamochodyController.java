@@ -47,7 +47,6 @@ public class SamochodyController {
     
     @ModelAttribute("MyMessages")
     public List<NotificationMessage> populateMessages() {
-        System.out.println("dupa");
         return notifyService.getNotificationMessages();
     }
     

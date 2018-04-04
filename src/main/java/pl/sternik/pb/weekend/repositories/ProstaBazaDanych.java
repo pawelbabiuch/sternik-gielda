@@ -21,9 +21,31 @@ public class ProstaBazaDanych implements SamochodyRepository {
     public ProstaBazaDanych() {
         baza = new Samochod[15];
         
-        baza[0] = Samochod.produceSamochod(1L, "Opel", "Astra", "H", "PLN", BigDecimal.valueOf(20000), new Date(), "Polska", Status.NOWA);
-        baza[1] = Samochod.produceSamochod(2L, "Mazda", "6", "II", "PLN", BigDecimal.valueOf(18000), new Date(), "Szwecja", Status.UZYWANA);
-
+        Samochod s = new Samochod();
+        s.setVin(1L);
+        s.setMarka("Opel");
+        s.setModel("Astra");
+        s.setWersja("H");
+        s.setWaluta("PLN");
+        s.setCena(BigDecimal.valueOf(15234));
+        s.setData(new Date());
+        s.setKrajPochodzenia("Polska");
+        s.setStatus(Status.NOWA);
+        baza[0] = s;
+        
+        s = new Samochod();
+        s.setVin(2L);
+        s.setMarka("Mazda");
+        s.setModel("6");
+        s.setWersja("II");
+        s.setWaluta("PLN");
+        s.setCena(BigDecimal.valueOf(21300));
+        s.setData(new Date());
+        s.setKrajPochodzenia("Szwecja");
+        s.setStatus(Status.UZYWANA);
+        baza[1] = s;
+        
+      
     }
 
     public ProstaBazaDanych(int rozmiarBazy) {

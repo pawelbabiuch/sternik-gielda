@@ -22,6 +22,9 @@ public class SamochodyRepositoryJ8Impl implements SamochodyRepository {
 	    private static final long serialVersionUID = 1L;
 	    {
 	        add(Samochod.produceSamochod(1L, "Opel", "Astra", "H", "PLN", BigDecimal.valueOf(20000), new Date(), "Polska", Status.NOWA));
+	        add(Samochod.produceSamochod(1L, "Opel", "Astra", "H", "PLN", BigDecimal.valueOf(20000), new Date(), "Polska", Status.UZYWANA));
+	        add(Samochod.produceSamochod(1L, "Opel", "Astra", "H", "PLN", BigDecimal.valueOf(20000), new Date(), "Polska", Status.UZYWANA));
+	        add(Samochod.produceSamochod(1L, "Opel", "Astra", "H", "PLN", BigDecimal.valueOf(20000), new Date(), "Polska", Status.USZKODZONA));
 	    }
 	};
     
