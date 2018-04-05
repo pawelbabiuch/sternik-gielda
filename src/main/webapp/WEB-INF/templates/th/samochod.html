@@ -24,7 +24,7 @@
               <tbody>
                 <tr>
                   <td><span th:text="#{auto.vin}">numer</span></td>
-                 <td><input type="text" th:field="*{vin}" th:errorclass="fieldError" required /></td>
+                 <td><input type="number" th:field="*{vin}" min="1" max="1000" required /></td>
                </tr>
                <tr>
                   <td> <span th:text="#{auto.marka}">marka</span></td>
@@ -40,15 +40,15 @@
                </tr>
                <tr>
                   <td> <span th:text="#{auto.waluta}">waluta</span></td>
-                 <td><input type="text" th:field="*{waluta}" th:errorclass="fieldError" required/></td>
+                 <td><input type="text" th:field="*{waluta}" th:errorclass="fieldError" minlength="3" maxlength="3" pattern="[A-Z]{3}" required/></td>
                </tr>
                <tr>
                   <td><span th:text="#{auto.cena}">cena</span></td>
-                 <td><input type="text" th:field="*{cena}" th:errorclass="fieldError" required/></td>
+                 <td><input type="number" th:field="*{cena}" min="0" max="999999" required/></td>
                </tr>
                <tr>
                   <td><span th:text="#{auto.data}">Date kup</span></td>
-                 <td><input type="text" th:field="*{data}" th:errorclass="fieldError" required/></td>
+                 <td><input type="date" th:field="*{data}" required/></td>
                </tr>
                <tr>
                   <td><span th:text="#{auto.krajPochodzenia}">krajPochodzenia</span></td>
