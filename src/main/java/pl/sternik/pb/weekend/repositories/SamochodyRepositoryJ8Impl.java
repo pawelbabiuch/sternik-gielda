@@ -21,10 +21,10 @@ public class SamochodyRepositoryJ8Impl implements SamochodyRepository {
     {
 	    private static final long serialVersionUID = 1L;
 	    {
-	        add(Samochod.produceSamochod(1L, "Opel", "Astra", "H", "PLN", BigDecimal.valueOf(20000), new Date(), "Polska", Status.NOWA));
-	        add(Samochod.produceSamochod(1L, "Opel", "Astra", "H", "PLN", BigDecimal.valueOf(20000), new Date(), "Polska", Status.UZYWANA));
-	        add(Samochod.produceSamochod(1L, "Opel", "Astra", "H", "PLN", BigDecimal.valueOf(20000), new Date(), "Polska", Status.UZYWANA));
-	        add(Samochod.produceSamochod(1L, "Opel", "Astra", "H", "PLN", BigDecimal.valueOf(20000), new Date(), "Polska", Status.USZKODZONA));
+	        add(Samochod.produceSamochod(1L, "Opel", "Astra", "H", "PLN", BigDecimal.valueOf(13500), CalculateDate.getDate(), "Polska", Status.NOWA));
+	        add(Samochod.produceSamochod(2L, "Mazda", "6", "II", "PLN", BigDecimal.valueOf(18900), CalculateDate.getDate(), "Niemcy", Status.UZYWANA));
+	        add(Samochod.produceSamochod(3L, "Audi", "A3", "B6", "PLN", BigDecimal.valueOf(7890), CalculateDate.getDate(), "Polska", Status.UZYWANA));
+	        add(Samochod.produceSamochod(4L, "Honda", "Civic", "VII", "PLN", BigDecimal.valueOf(16010), CalculateDate.getDate(), "Szwecja", Status.USZKODZONA));
 	    }
 	};
     

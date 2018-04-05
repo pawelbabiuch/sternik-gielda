@@ -64,9 +64,9 @@ form
 }
 
 input, select {
-  width: 250px;
-  margin: 5px;
-  padding: 10px 20px;
+  width: 200px;
+  margin: 2px;
+  padding: 5px 20px;
   border: 1px solid #b7b7b7;
   -webkit-border-radius: 5px;
   border-radius: 5px;
@@ -78,12 +78,16 @@ input, select {
   -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
   box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
   text-shadow: 1px 1px 0 rgba(255,255,255,0.66) ;
+  -ms-box-sizing:content-box;
+  -moz-box-sizing:content-box;
+  -webkit-box-sizing:content-box; 
+  box-sizing:content-box;
 }
 
 button {
   width: 128px;
   cursor: pointer;
-  padding: 10px 20px;
+  padding: 5px 20px;
   border: 1px solid #018dc4;
   -webkit-border-radius: 9px;
   border-radius: 9px;

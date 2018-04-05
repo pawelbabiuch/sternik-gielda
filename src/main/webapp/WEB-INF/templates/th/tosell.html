@@ -28,9 +28,9 @@
 	        </thead>
 	        <tbody>
 	          <tr th:each="car : ${carsToSell}">
-	            <form action="#" th:action="@{/tosell}" th:object="${car}" method="post">
+	            <form action="#" th:action="@{/samochody}" th:object="${car}" method="get">
 		            <td th:text="${car.vin}">1</td>
-		            <td th:text="${car.marka}">Opel</td>
+		            <td th:text="${car.marka}">Fiat</td>
 		            <td th:text="${car.model}">126p</td>
 		            <td th:text="${car.wersja}">I</td>
 		            <td th:text="${car.waluta}">PLN</td>
@@ -38,7 +38,7 @@
 		            <td th:text="${car.data}">1987-06-02</td>
 		            <td th:text="${car.krajPochodzenia}">Polska</td>
 		            <td>
-		              <button type="submit" name="remove" th:value="${car.vin}" th:text="#{auto.buy}">Kup</button>            
+		              <button type="submit" name="buy" th:value="${car.vin}" th:text="#{auto.buy}">Kup</button>            
 		            </td>
            		</form>
           </tr>

@@ -34,7 +34,7 @@
           <tr th:each="car : ${carsAll}">
             <form action="#" th:action="@{/samochody}" th:object="${car}" method="post">
             <td th:text="${car.vin}">1</td>
-            <td th:text="${car.marka}">Opel</td>
+            <td th:text="${car.marka}">Fiat</td>
             <td th:text="${car.model}">126p</td>
             <td th:text="${car.wersja}">I</td>
             <td th:text="${car.waluta}">PLN</td>
@@ -47,7 +47,7 @@
               th:text="#{auto.remove}">Dell</button>
               
               <a href="moneta.html" th:href="@{|/samochody/${car.vin}|}" >
-              <button type="button" th:text="#{auto.edit}">Editt</button></a>              
+              <button type="button" th:text="#{auto.edit}">Edit</button></a>              
             </td>
             </form>
           </tr>
