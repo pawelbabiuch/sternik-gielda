@@ -141,3 +141,19 @@ table.tableStyle thead th:first-child {
 table.tableStyle tfoot td {
   font-size: 14px;
 }
+
+#messages
+{
+  list-style-type: none;
+  margin: auto;
+  margin-top: 15px;
+  text-align: center;
+  background-color: #0078e4;
+  color: white;
+  width: 75%;
+  letter-spacing: 2px;
+  font-size: 16px;
+
+  -webkit-border-radius: 9px;
+  border-radius: 9px;
+}
