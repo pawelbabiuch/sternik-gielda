@@ -83,4 +83,10 @@ public class GieldaServiceJ8Impl implements GieldaService {
         return samochody.findAll().stream().filter(p -> Objects.equals(p.getStatus(), Status.UZYWANA))
                 .collect(Collectors.toList());
     }
+
+	@Override
+	public List<Samochod> findCrashed() {
+        return samochody.findAll().stream().filter(p -> Objects.equals(p.getStatus(), Status.USZKODZONA))
+                .collect(Collectors.toList());
+	}
 }

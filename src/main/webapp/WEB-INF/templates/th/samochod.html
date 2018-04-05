@@ -26,43 +26,42 @@
            
           <div>
             <label for="vin"> <span th:text="#{auto.vin}">numer</span> </label>
-            <input type="text" th:field="*{vin}" th:errorclass="fieldError" />
+            <input type="text" th:field="*{vin}" th:errorclass="fieldError" required />
           </div>
          
           <div>
-            <label for="marka"> <span th:text="#{auto.marka}">marka</span>
-            </label> <input type="text" th:field="*{marka}" th:errorclass="fieldError" />
-            <span th:if="${#fields.hasErrors('marka')}" th:errors="*{marka}">Incorrect marka</span>
+            <label for="marka"> <span th:text="#{auto.marka}">marka</span></label>
+            <input type="text" th:field="*{marka}" th:errorclass="fieldError" required/>
           </div>
       
           <div>
-            <label for="model"> <span th:text="#{auto.model}">model</span>
-            </label> <input type="text" th:field="*{model}" th:errorclass="fieldError" />
+            <label for="model"> <span th:text="#{auto.model}">model</span></label>
+            <input type="text" th:field="*{model}" th:errorclass="fieldError" required/>
           </div>
 
           <div>
-            <label for="wersja"> <span th:text="#{auto.wersja}">wersja</span>
-            </label> <input type="text" th:field="*{wersja}" th:errorclass="fieldError" />
+            <label for="wersja"> <span th:text="#{auto.wersja}">wersja</span></label>
+            <input type="text" th:field="*{wersja}" th:errorclass="fieldError" />
           </div>
 
           <div>
-            <label for="waluta"> <span th:text="#{auto.waluta}">waluta</span>
-            </label> <input type="text" th:field="*{waluta}" th:errorclass="fieldError" />
+            <label for="waluta"> <span th:text="#{auto.waluta}">waluta</span></label>
+            <input type="text" th:field="*{waluta}" th:errorclass="fieldError" required/>
           </div>
           
           <div>
-            <label for="cena"> <span th:text="#{auto.cena}">cena</span>
-            </label> <input type="text" th:field="*{cena}" th:errorclass="fieldError" />
+            <label for="cena"> <span th:text="#{auto.cena}">cena</span></label>
+            <input type="text" th:field="*{cena}" th:errorclass="fieldError" required/>
           </div>
 
           <div>
-            <label for="data"> <span th:text="#{auto.data}">Date kup</span>
-            </label> <input type="text" th:field="*{data}" th:errorclass="fieldError" />
+            <label for="data"> <span th:text="#{auto.data}">Date kup</span></label>
+            <input type="text" th:field="*{data}" th:errorclass="fieldError" required/>
           </div>
           
           <div>
-            <label for="krajPochodzenia"> <span th:text="#{auto.krajPochodzenia}">krajPochodzenia</span>
-            </label> <input type="text" th:field="*{krajPochodzenia}" th:errorclass="fieldError" />
+            <label for="krajPochodzenia"> <span th:text="#{auto.krajPochodzenia}">krajPochodzenia</span></label>
+            <input type="text" th:field="*{krajPochodzenia}" th:errorclass="fieldError" required/>
           </div>
 
           <div>
