@@ -11,81 +11,73 @@
 <body>
   <div id='container'>
     <header th:replace="th/layout :: site-header" />
-               
-    <div>
-       
+    
+    <main>
+      <h2>Dodaj ofertę</h2>
       <form action="#" th:action="@{/samochody}" th:object="${samochod}" method="post">
-
-        <fieldset>
-
-          <legend th:text="#{auto.dane}">Starter Data</legend>
    
           <ul th:if="${#fields.hasErrors('*')}" >
             <li th:each="err : ${#fields.errors('*')}" th:text="${err}">Input is incorrect</li>
           </ul>
            
-          <div>
-            <label for="vin"> <span th:text="#{auto.vin}">numer</span> </label>
-            <input type="text" th:field="*{vin}" th:errorclass="fieldError" required />
-          </div>
-         
-          <div>
-            <label for="marka"> <span th:text="#{auto.marka}">marka</span></label>
-            <input type="text" th:field="*{marka}" th:errorclass="fieldError" required/>
-          </div>
-      
-          <div>
-            <label for="model"> <span th:text="#{auto.model}">model</span></label>
-            <input type="text" th:field="*{model}" th:errorclass="fieldError" required/>
-          </div>
-
-          <div>
-            <label for="wersja"> <span th:text="#{auto.wersja}">wersja</span></label>
-            <input type="text" th:field="*{wersja}" th:errorclass="fieldError" />
-          </div>
-
-          <div>
-            <label for="waluta"> <span th:text="#{auto.waluta}">waluta</span></label>
-            <input type="text" th:field="*{waluta}" th:errorclass="fieldError" required/>
-          </div>
-          
-          <div>
-            <label for="cena"> <span th:text="#{auto.cena}">cena</span></label>
-            <input type="text" th:field="*{cena}" th:errorclass="fieldError" required/>
-          </div>
-
-          <div>
-            <label for="data"> <span th:text="#{auto.data}">Date kup</span></label>
-            <input type="text" th:field="*{data}" th:errorclass="fieldError" required/>
-          </div>
-          
-          <div>
-            <label for="krajPochodzenia"> <span th:text="#{auto.krajPochodzenia}">krajPochodzenia</span></label>
-            <input type="text" th:field="*{krajPochodzenia}" th:errorclass="fieldError" required/>
-          </div>
-
-          <div>
-            <label for="status"> <span th:text="#{auto.status}">status</span></label>
-              <select th:field="*{status}" th:errorclass="fieldError">
-                <option th:each="st : ${statusyAll}" th:value="${st}" th:text="#{'auto.status.' + ${st}}">Nowa</option>
-              </select>          
-          </div>
-
-          <div class="submit">          
-              <button th:if="*{vin}" type="submit" name="save" th:value="*{vin}" >Zapisz</button>
-           
-           
-              <button th:unless="*{vin}" type="submit" name="create" >Dodaj</button>            
-              
-              
-              <a href="gielda.html" th:href="@{/samochody}" ><button type="button">Anuluj</button></a>            
-          </div>
-
-        </fieldset>
-
-
+           <table style="width: 50%; margin: auto;">
+              <tbody>
+                <tr>
+                  <td><span th:text="#{auto.vin}">numer</span></td>
+                 <td><input type="text" th:field="*{vin}" th:errorclass="fieldError" required /></td>
+               </tr>
+               <tr>
+                  <td> <span th:text="#{auto.marka}">marka</span></td>
+                 <td> <input type="text" th:field="*{marka}" th:errorclass="fieldError" required/></td>
+               </tr>
+               <tr>
+                  <td> <span th:text="#{auto.model}">model</span></td>
+                 <td><input type="text" th:field="*{model}" th:errorclass="fieldError" required/></td>
+               </tr>
+               <tr>
+                  <td><span th:text="#{auto.wersja}">wersja</span></td>
+                 <td> <input type="text" th:field="*{wersja}" th:errorclass="fieldError" /></td>
+               </tr>
+               <tr>
+                  <td> <span th:text="#{auto.waluta}">waluta</span></td>
+                 <td><input type="text" th:field="*{waluta}" th:errorclass="fieldError" required/></td>
+               </tr>
+               <tr>
+                  <td><span th:text="#{auto.cena}">cena</span></td>
+                 <td><input type="text" th:field="*{cena}" th:errorclass="fieldError" required/></td>
+               </tr>
+               <tr>
+                  <td><span th:text="#{auto.data}">Date kup</span></td>
+                 <td><input type="text" th:field="*{data}" th:errorclass="fieldError" required/></td>
+               </tr>
+               <tr>
+                  <td><span th:text="#{auto.krajPochodzenia}">krajPochodzenia</span></td>
+                 <td><input type="text" th:field="*{krajPochodzenia}" th:errorclass="fieldError" required/></td>
+               </tr>
+               <tr>
+                  <td><span th:text="#{auto.status}">status</span></td>
+                <td>
+                  <select th:field="*{status}" th:errorclass="fieldError">
+                    <option th:each="st : ${statusyAll}" th:value="${st}" th:text="#{'auto.status.' + ${st}}">Nowa</option>
+                  </select>
+                </td>
+               </tr>
+               <tr>
+                  <td>
+                     <button th:if="*{vin}" type="submit" name="save" th:value="*{vin}" >Zapisz</button>
+                      <button th:unless="*{vin}" type="submit" name="create" >Dodaj</button>
+                  </td>
+                  <td>
+                    <a href="gielda.html" th:href="@{/samochody}" >
+                      <button type="button">Anuluj</button>
+                    </a>
+                  </td>
+               </tr>
+              </tbody>
+           </table>
       </form>
-    </div>
+    </main>       
+   
     <footer th:replace="th/layout :: site-footer" />
   </div>
 </body>

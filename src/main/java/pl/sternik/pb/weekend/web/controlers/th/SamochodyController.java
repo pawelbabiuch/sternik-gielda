@@ -129,4 +129,11 @@ public class SamochodyController {
         samochod.setData(Calendar.getInstance().getTime());
         return "th/samochod";
     }
+    
+    @RequestMapping(value = "/samochody", params = { "buy" }, method = RequestMethod.GET)
+    public String buyRow(final Samochod samochod, final BindingResult bindingResult, final HttpServletRequest req) {
+        final Integer rowId = Integer.valueOf(req.getParameter("buy"));
+        Optional<Boolean> result = gieldaService.deleteByVin(rowId.longValue());
+        return "redirect:/tosell";
+    }
 }
