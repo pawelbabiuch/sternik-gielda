@@ -54,8 +54,8 @@ public class ProstaBazaDanych implements SamochodyRepository {
 
     @Override
     public Samochod create(Samochod samochod) throws SamochodAlreadyExistsException{
-        if (samochod != null && baza[(int)samochod.getVin()] != null) {
-            if (samochod.getVin() == (baza[(int)samochod.getVin()].getVin())) {
+        if (samochod != null && baza[samochod.getVin().intValue()] != null) {
+            if (samochod.getVin() == (baza[samochod.getVin().intValue()].getVin())) {
                 throw new SamochodAlreadyExistsException("Już jest samochod o takim numerze vin.");
             }
         }
@@ -84,11 +84,11 @@ public class ProstaBazaDanych implements SamochodyRepository {
             throw new NoSuchSamochodException("Niepoprawny numer vin");
         }
 
-        Samochod m = baza[(int)samochod.getVin()];
+        Samochod m = baza[samochod.getVin().intValue()];
         if (m == null) {
             throw new NoSuchSamochodException("Brak takiego samochodu.");
         } else {
-            baza[(int)samochod.getVin()] = samochod;
+            baza[samochod.getVin().intValue()] = samochod;
         }
         return samochod;
     }
