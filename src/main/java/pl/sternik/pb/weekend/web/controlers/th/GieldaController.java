@@ -19,8 +19,8 @@ import pl.sternik.pb.weekend.services.NotificationService;
 public class GieldaController {
 
     @Autowired
-//    @Qualifier("spring-data")
-    @Qualifier("tablica")
+    @Qualifier("spring-data")
+//    @Qualifier("tablica")
 //    @Qualifier("lista")
     private GieldaService gieldaService;
 

@@ -13,13 +13,13 @@ public interface GieldaService {
     
     List<Samochod> findCrashed();
 
-    Optional<Samochod> findByVin(long vin);
+    Optional<Samochod> findByVin(Long vin);
 
     Optional<Samochod> create(Samochod samochod);
 
     Optional<Samochod> edit(Samochod samochod);
 
-    Optional<Boolean> deleteByVin(long vin);
+    Optional<Boolean> deleteByVin(Long vin);
 
     List<Samochod> findLatest3();
 }

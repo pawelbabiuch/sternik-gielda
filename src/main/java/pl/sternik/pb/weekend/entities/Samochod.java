@@ -3,20 +3,36 @@ package pl.sternik.pb.weekend.entities;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
+@Entity
 @XmlRootElement
 public class Samochod {
 
-	private long vin;
+	@Id
+	private Long vin;
+	
+	@NotNull
     private String model;
+	@NotNull
 	private String marka;
+	@NotNull
 	private String wersja;
-
-	private String waluta;
+	@NotNull
+	private String waluta;	
+	@NotNull
 	private BigDecimal cena;
+	@NotNull
 	private Date data;
+	@NotNull
 	private String krajPochodzenia;
+	@Enumerated(EnumType.STRING)
 	private Status status;
 
 	
@@ -175,11 +191,11 @@ public class Samochod {
 				+ krajPochodzenia + ", status=" + status + "]";
 	}
 
-	public long getVin() {
+	public Long getVin() {
 		return vin;
 	}
 
-	public void setVin(long vin) {
+	public void setVin(Long vin) {
 		this.vin = vin;
 	}
 

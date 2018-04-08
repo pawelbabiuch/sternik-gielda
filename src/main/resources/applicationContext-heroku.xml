@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
+<beans profile="heroku" 
+	xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:util="http://www.springframework.org/schema/util"
@@ -13,51 +14,44 @@
 	<context:component-scan base-package="pl.sternik.pb.weekend" />
 
 	<!-- For bootstrapping the Spring Repository -->
-	<!-- <jpa:repositories base-package="pl.sternik.pb.weekend.repositories.springdata" /> -->
+	<jpa:repositories base-package="pl.sternik.pb.weekend.repositories.springdata" />
 
 	<!-- Necessary to get the entity manager injected into the factory bean -->
-	<!-- <bean
-		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
- -->
+	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+
 	<!-- Define Hibernate JPA Vendor Adapter -->
-	<!-- <bean id="jpaVendorAdapter"
-		class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"> -->
-		<!-- odkomentuj na heroku -->
-		<!-- <property name="databasePlatform" value="org.hibernate.dialect.PostgreSQLDialect" /> -->
-		<!-- odokentuj na lokalne h2 -->
-		<!-- <property name="databasePlatform" value="org.hibernate.dialect.H2Dialect" /> -->
-		<!-- <property name="generateDdl" value="false" />
+	<bean id="jpaVendorAdapter"
+		class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+		<property name="databasePlatform" value="org.hibernate.dialect.PostgreSQLDialect" />
+		<property name="generateDdl" value="false" />
 		<property name="showSql" value="true" />
 	</bean>
- -->
+
 	<!-- Entity Manager Factory -->
-	<!-- <bean id="entityManagerFactory"
+	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-		to dla heroku 2 linijki
 		<property name="dataSource" ref="dataSource" />
 		<property name="persistenceUnitName" value="springData-postgres"></property>
-	 -->	<!-- to lokalnie dla h2 -->
-		<!-- <property name="persistenceUnitName" value="springData-h2"></property> -->
-		<!-- <property name="jpaVendorAdapter" ref="jpaVendorAdapter" />
+		<property name="jpaVendorAdapter" ref="jpaVendorAdapter" />
 		<property name="jpaProperties">
 			<props>
-		 -->		<!-- possible values validate | update | create | create-drop -->
-			<!-- 	<prop key="hibernate.hbm2ddl.auto">update</prop>
+<!-- 			possible values validate | update | create | create-drop  -->
+				<prop key="hibernate.hbm2ddl.auto">create</prop>
 			</props>
 		</property>
-	</bean> -->
+	</bean>
 
 	<!-- Transaction Manager -->
-	<!-- <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
- -->
+
 	<!-- Enable Transactional Manner -->
-	<!-- <tx:annotation-driven transaction-manager="transactionManager" />
- -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
 	<!-- konfig hroku db -->
 
-	<!-- <bean class="java.net.URI" id="dbUrl">
+	<bean class="java.net.URI" id="dbUrl">
 		<constructor-arg value="#{systemEnvironment['DATABASE_URL']}" />
 	</bean>
 
@@ -67,5 +61,5 @@
 		<property name="username" value="#{ @dbUrl.getUserInfo().split(':')[0] }" />
 		<property name="password" value="#{ @dbUrl.getUserInfo().split(':')[1] }" />
 	</bean>
- -->
+
 </beans>

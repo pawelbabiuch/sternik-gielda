@@ -1,6 +1,6 @@
 {
-  "name": "sternik-weekend",
-  "description": "new app on heroku.",
+  "name": "sternik-gielda",
+  "description": "Gielda samochodowa.",
   "image": "heroku/java",
   "addons": [ "heroku-postgresql" ]
 }

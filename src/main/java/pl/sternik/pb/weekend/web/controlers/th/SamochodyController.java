@@ -7,6 +7,7 @@ import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 //import javax.validation.Valid;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -32,8 +33,8 @@ import pl.sternik.pb.weekend.services.NotificationService.NotificationMessage;
 public class SamochodyController {
 
     @Autowired
-    // @Qualifier("spring-data")
-    @Qualifier("tablica")
+    @Qualifier("spring-data")
+    //@Qualifier("tablica")
     // @Qualifier("lista")
     private GieldaService gieldaService;
 
@@ -52,7 +53,7 @@ public class SamochodyController {
     
 
     @GetMapping(value = "/samochody/{id}")
-    public String view(@PathVariable("id") long id, final ModelMap model) {
+    public String view(@PathVariable("id") Long id, final ModelMap model) {
         Optional<Samochod> result;
         result = gieldaService.findByVin(id);
         if (result.isPresent()) {
@@ -68,7 +69,7 @@ public class SamochodyController {
 
     @RequestMapping(value = "/samochody/{id}/json", produces = "application/json", method = RequestMethod.GET)
     @ResponseBody
-    public ResponseEntity<Samochod> viewAsJson(@PathVariable("id") long id, final ModelMap model) {
+    public ResponseEntity<Samochod> viewAsJson(@PathVariable("id") Long id, final ModelMap model) {
         Optional<Samochod> result;
         result = gieldaService.findByVin(id);
         if (result.isPresent()) {
@@ -82,30 +83,26 @@ public class SamochodyController {
     }
 
     @RequestMapping(value = "/samochody", params = { "save" }, method = RequestMethod.POST)
-    public String saveSamochod(Samochod samochod, BindingResult bindingResult, ModelMap model) {
-        // @Valid
+    public String saveSamochod(@Valid Samochod samochod, BindingResult bindingResult, ModelMap model) {
         if (bindingResult.hasErrors()) {
             notifyService.addErrorMessage("Please fill the form correctly!");
             model.addAttribute("MyMessages",  notifyService.getNotificationMessages());
             return "th/samochod";
         }
-        
-        if (samochod.getStatus() == Status.NOWA) {
-            samochod.setStatus(Status.UZYWANA);
-        }
-        
+            
         Optional<Samochod> result = gieldaService.edit(samochod);
         if (result.isPresent())
             notifyService.addInfoMessage("Zapis udany");
         else
             notifyService.addErrorMessage("Zapis NIE udany");
+        
         model.clear();
        
         return "redirect:/samochody";
     }
 
     @RequestMapping(value = "/samochody", params = { "create" }, method = RequestMethod.POST)
-    public String createSamochod(Samochod samochod, BindingResult bindingResult, ModelMap model) {
+    public String createSamochod(@Valid Samochod samochod, BindingResult bindingResult, ModelMap model) {
         if (bindingResult.hasErrors()) {
             notifyService.addErrorMessage("Please fill the form correctly!");
             model.addAttribute("MyMessages",  notifyService.getNotificationMessages());

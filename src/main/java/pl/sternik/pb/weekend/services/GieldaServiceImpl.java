@@ -73,7 +73,7 @@ public class GieldaServiceImpl implements GieldaService {
     }
 
 	@Override
-	public Optional<Samochod> findByVin(long vin) {
+	public Optional<Samochod> findByVin(Long vin) {
         try {
             return Optional.of(bazaDanych.readByVin(vin));
         } catch (NoSuchSamochodException e) {
@@ -82,7 +82,7 @@ public class GieldaServiceImpl implements GieldaService {
 	}
 
 	@Override
-	public Optional<Boolean> deleteByVin(long vin) {
+	public Optional<Boolean> deleteByVin(Long vin) {
         try {
             bazaDanych.deleteByVin(vin);
             return Optional.of(Boolean.TRUE);
